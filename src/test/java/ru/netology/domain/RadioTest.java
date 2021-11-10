@@ -1,6 +1,6 @@
 package ru.netology.domain;
 
-import org.junit.jupiter.api.Disabled;
+
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -10,8 +10,8 @@ class RadioTest {
     @Test
     public void ShouldincreaseStation() {
         Radio coub = new Radio();
-        coub.currentStation = 8;
-        int expected = 9;
+        coub.currentStation = 9;
+        int expected = 0;
         coub.increaseStation();
         int actual = coub.currentStation;
         assertEquals(expected, actual);
@@ -69,15 +69,15 @@ class RadioTest {
         assertEquals(expected, actual);
     }
 
-    @Test
-    public void ShouldPutStationMax() {
-        Radio coub = new Radio();
-        coub.currentStation = 9;
-        int expected = 9;
-        coub.increaseStation();
-        int actual = coub.currentStation;
-        assertEquals(expected, actual);
-    }
+//    @Test
+//public void ShouldPutStationMax() {
+//        Radio coub = new Radio();
+//        coub.currentStation = 9;
+//       int expected = 9;
+//       coub.increaseStation();
+//       int actual = coub.currentStation;
+//        assertEquals(expected, actual);
+//  }
 
     @Test
     public void ShouldIncreaseVolume() {
@@ -150,15 +150,15 @@ class RadioTest {
         assertEquals(expected, actual);
     }
 
-    @Test
-    public void ShouldPutVolumeMin1() {
-        Radio coub = new Radio();
-        coub.currentVolume = 1;
-        int expected = 1;
-        coub.decreaseVolume();
-        int actual = coub.currentVolume;
-        assertEquals(expected, actual);
-    }
+//    @Test
+//    public void ShouldPutVolumeMin1() {
+//        Radio coub = new Radio();
+//        coub.currentVolume = 1;
+//       int expected = 1;
+//        coub.decreaseVolume();
+//        int actual = coub.currentVolume;
+//        assertEquals(expected, actual);
+//    }
 
     @Test
     public void ShouldSetCurrentsStation() {
