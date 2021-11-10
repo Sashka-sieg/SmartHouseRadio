@@ -17,6 +17,12 @@ class RadioTest {
     }
 
     @Test
-     public void decreaseStation() {
+     public void ShouldNoIncreaseStation() {
+        Radio coub = new Radio();
+        coub.currentStation = 11;
+        int expected = 11;
+        coub.increaseStation();
+        int actual =coub.currentStation;
+        assertEquals(expected,actual);
     }
 }
