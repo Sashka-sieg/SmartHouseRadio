@@ -38,7 +38,7 @@
                 <executions>
                     <execution>
                         <id>prepare-agent</id>
-                        <!--                        <phase>initialize</phase>-->
+                       <phase>initialize</phase>
                         <goals>
                             <goal>prepare-agent</goal>
                         </goals>
@@ -50,8 +50,16 @@
                             <goal>report</goal>
                         </goals>
                     </execution>
+                    <execution>
+                        <id>check</id>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
                 </executions>
             </plugin>
         </plugins>
     </build>
 </project>
+
+
