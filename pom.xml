@@ -21,7 +21,6 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-
     <build>
         <plugins>
             <plugin>
@@ -46,7 +45,7 @@
                     </execution>
                     <execution>
                         <id>report</id>
-                        <!--                        <<phase>verify</phase>-->
+                        <phase>verify</phase>
                         <goals>
                             <goal>report</goal>
                         </goals>
