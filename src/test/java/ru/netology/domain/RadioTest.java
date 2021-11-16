@@ -10,178 +10,156 @@ class RadioTest {
     @Test
     public void ShouldincreaseStation() {
         Radio coub = new Radio();
-        coub.currentStation = 9;
-        int expected = 0;
-        coub.increaseStation();
-        int actual = coub.currentStation;
-        assertEquals(expected, actual);
+        coub.setCurrentStation(7);
+        coub.increaceStation();
+        assertEquals(8, coub.getCurrentStation());
     }
 
     @Test
-    public void ShouldNoIncreaseStation() {
+    public void ShouldNoincreaseStation() {
         Radio coub = new Radio();
-        coub.currentStation = 11;
-        int expected = 11;
-        coub.increaseStation();
-        int actual = coub.currentStation;
-        assertEquals(expected, actual);
-    }
-
-    @Test
-    public void ShouldNoDeIncreaseStation() {
-        Radio coub = new Radio();
-        coub.currentStation = 11;
-        int expected = 11;
-        coub.increaseStation();
-        int actual = coub.currentStation;
-        assertEquals(expected, actual);
-
+        coub.setCurrentStation(10);
+        coub.increaceStation();
+        assertEquals(0, coub.getCurrentStation());
     }
 
     @Test
     public void ShouldDeIncreaseStation() {
         Radio coub = new Radio();
-        coub.currentStation = 8;
-        int expected = 7;
+        coub.setCurrentStation(7);
         coub.decreaseStation();
-        int actual = coub.currentStation;
-        assertEquals(expected, actual);
+        assertEquals(6, coub.getCurrentStation());
     }
 
+    @Test
+    public void ShouldNoDeIncreaseStation() {
+        Radio coub = new Radio();
+        coub.setCurrentStation(13);
+        coub.getCurrentStation();
+        assertEquals(9, coub.getCurrentStation());
+    }
 
     @Test
     public void ShouldNoDecreaseStationLowMinPrev() {
         Radio coub = new Radio();
-        coub.currentStation = -1;
-        int expected = 9;
+        coub.setCurrentStation(-10);
         coub.decreaseStation();
-        int actual = coub.currentStation;
-        assertEquals(expected, actual);
+        assertEquals(9, coub.getCurrentStation());
     }
 
     @Test
-    public void ShouldPutStation9() {
+    public void ShouldIncreateStationValue() {
         Radio coub = new Radio();
-        coub.currentStation = 0;
-        int expected = 9;
-        coub.decreaseStation();
-        int actual = coub.currentStation;
-        assertEquals(expected, actual);
+        coub.setCurrentStation(15);
+        coub.increaceStation();
+        assertEquals(0, coub.getCurrentStation());
     }
 
-//    @Test
-//public void ShouldPutStationMax() {
-//        Radio coub = new Radio();
-//        coub.currentStation = 9;
-//       int expected = 9;
-//       coub.increaseStation();
-//       int actual = coub.currentStation;
-//        assertEquals(expected, actual);
-//  }
+    @Test
+    public void ShouldDecreateStationValue() {
+        Radio coub = new Radio();
+        coub.setCurrentStation(15);
+        coub.decreaseStation();
+        assertEquals(8, coub.getCurrentStation());
+    }
 
     @Test
     public void ShouldIncreaseVolume() {
         Radio coub = new Radio();
-        coub.currentVolume = 6;
-        int expected = 7;
+        coub.setCurrentVolume(0);
         coub.increaseVolume();
-        int actual = coub.currentVolume;
-        assertEquals(expected, actual);
+        assertEquals(1, coub.getCurrentVolume());
     }
 
     @Test
-    public void ShouldNoIncreaseVolume() {
+    public void ShoulIncreaseVolumeOverMax() {
         Radio coub = new Radio();
-        coub.currentVolume = 10;
-        int expected = 10;
+        coub.setCurrentVolume(12);
         coub.increaseVolume();
-        int actual = coub.currentVolume;
-        assertEquals(expected, actual);
+        assertEquals(10, coub.getCurrentVolume());
     }
 
     @Test
     public void ShouldDecreaseVolume() {
         Radio coub = new Radio();
-        coub.currentVolume = 8;
-        int expected = 7;
+        coub.setCurrentVolume(1);
         coub.decreaseVolume();
-        int actual = coub.currentVolume;
-        assertEquals(expected, actual);
+        assertEquals(0, coub.getCurrentVolume());
     }
 
     @Test
-    public void ShouldNoDecreaseVolume() {
+    public void ShouldDecreaseVolumeUnderMin() {
         Radio coub = new Radio();
-        coub.currentVolume = -1;
-        int expected = 0;
+        coub.setCurrentVolume(0);
         coub.decreaseVolume();
-        int actual = coub.currentVolume;
-        assertEquals(expected, actual);
+        assertEquals(0, coub.getCurrentVolume());
+
+    }
+
+    @Test
+    public void ShouldDecreaseVolumeUnderMinus5() {
+        Radio coub = new Radio();
+        coub.setCurrentVolume(-5);
+        coub.decreaseVolume();
+        assertEquals(0, coub.getCurrentVolume());
 
     }
 
     @Test
     public void ShouldPutVolume10() {
         Radio coub = new Radio();
-        coub.currentVolume = 10;
-        int expected = 10;
+        coub.setCurrentVolume(10);
         coub.increaseVolume();
-        int actual = coub.currentVolume;
-        assertEquals(expected, actual);
+        assertEquals(10, coub.getCurrentVolume());
     }
 
     @Test
     public void ShouldPutVolumeMax() {
         Radio coub = new Radio();
-        coub.currentVolume = 11;
-        int expected = 10;
+        coub.setCurrentVolume(11);
         coub.increaseVolume();
-        int actual = coub.currentVolume;
-        assertEquals(expected, actual);
+        assertEquals(10, coub.getCurrentVolume());
     }
 
     @Test
     public void ShouldPutVolume0() {
         Radio coub = new Radio();
-        coub.currentVolume = 0;
-        int expected = 0;
+        coub.setCurrentVolume(0);
         coub.decreaseVolume();
-        int actual = coub.currentVolume;
-        assertEquals(expected, actual);
+        assertEquals(0, coub.getCurrentVolume());
     }
 
-//    @Test
-//    public void ShouldPutVolumeMin1() {
-//        Radio coub = new Radio();
-//        coub.currentVolume = 1;
-//       int expected = 1;
-//        coub.decreaseVolume();
-//        int actual = coub.currentVolume;
-//        assertEquals(expected, actual);
-//    }
+    @Test
+    public void ShouldPutVolume1() {
+        Radio coub = new Radio();
+        coub.setCurrentVolume(1);
+
+        assertEquals(1, coub.getCurrentVolume());
+    }
 
     @Test
     public void ShouldSetCurrentsStation() {
         Radio coub = new Radio();
-        coub.setCurrentStation(5);
-        assertEquals(5, coub.getCurrentStation());
+        coub.setCurrentStation(7);
+        assertEquals(7, coub.getCurrentStation());
+    }
+
+
+    @Test
+    public void ShouldIncreaseStationOverMax() {
+        Radio coub = new Radio();
+        coub.setCurrentStation(12);
+        coub.getCurrentStation();
+        assertEquals(9, coub.getCurrentStation());
     }
 
     @Test
-    public void ShouldNoSetCurrentsStationMin() {
+    public void ShouldDecreateStationUnderMin() {
         Radio coub = new Radio();
-        coub.setCurrentStation(6);
-        coub.setCurrentStation(-3);
-        assertEquals(6, coub.getCurrentStation());
-    }
-
-    @Test
-    public void ShouldNoSetCurrentsStationMax() {
-        Radio coub = new Radio();
-        coub.setCurrentStation(6);
-        coub.setCurrentStation(11);
-        assertEquals(6, coub.getCurrentStation());
+        coub.setCurrentStation(0);
+        assertEquals(0, coub.getCurrentStation());
     }
 }
+
 
 
