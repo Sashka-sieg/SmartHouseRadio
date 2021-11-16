@@ -1,57 +1,121 @@
 package ru.netology.domain;
 
 public class Radio {
-    int currentStation;
-    int currentVolume;
+    private String name;
+    private int currentStation;
+    private int currentVolume;
+    private int maxVolume = 10;
+    private int minVolume = 0;
+    private int maxStation = 9;
+    private int minStation = 0;
 
-    public void increaseStation() {
-        if (currentStation <= 9) {
-            currentStation = currentStation + 1;
+    // повышаем громкость
+    public void increaseVolume() {
+        if (currentVolume == maxVolume) {
+            return;
         }
-        if (currentStation == 10) {
-            currentStation = 0;
+        currentVolume++;
+    }
+
+
+    // понижаем громкость
+    public void decreaseVolume() {
+        if (currentVolume == minVolume) {
+            return;
         }
+        currentVolume--;
+    }
+
+    // повышаем радиостанцию
+    public void increaceStation() {
+        if (currentStation == maxStation) {
+            this.currentStation = minStation;
+            return;
+        }
+        currentStation++;
     }
 
     public void decreaseStation() {
-        if (currentStation >= 0) {
-            currentStation = currentStation - 1;
-        }
-
-        if (currentStation == -1) {
-            currentStation = 9;
-        }
-    }
-
-    public void increaseVolume() {
-        if (currentVolume <= 10) {
-            currentVolume = currentVolume + 1;
-        }
-        if (currentVolume == 11) {
-            this.currentVolume = 10;
-        }
-    }
-
-    public void decreaseVolume() {
-        if (currentVolume >= 0) {
-            currentVolume = currentVolume - 1;
-        }
-        if (currentVolume == -1) {
-            this.currentVolume = 0;
-        }
-    }
-
-    public void setCurrentStation(int currentStation) {
-        if (currentStation < 0) {
+        if (currentStation == minStation) {
+            this.currentStation = maxStation;
             return;
         }
-        if (currentStation > 9) {
+        currentStation--;
+    }
+
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getMaxVolume() {
+        return maxVolume;
+    }
+
+    public void setMaxVolume(int maxVolume) {
+        this.maxVolume = maxVolume;
+    }
+
+    public int getMinVolume() {
+        return minVolume;
+    }
+
+    public void setMinVolume(int minVolume) {
+        this.minVolume = minVolume;
+    }
+
+    public int getMaxStation() {
+        return maxStation;
+    }
+
+    public void setMaxStation(int maxStation) {
+        this.maxStation = maxStation;
+    }
+
+    public int getMinStation() {
+        return minStation;
+    }
+
+    public void setMinStation(int minStation) {
+        this.minStation = minStation;
+    }
+
+    public int getCurrentVolume() {
+        return currentVolume;
+    }
+
+    public void setCurrentVolume(int currentVolume) {
+        if (currentVolume > maxVolume) {
+            this.currentVolume = maxVolume;
             return;
         }
-        this.currentStation = currentStation;
+        if (currentVolume < minVolume) {
+            this.currentVolume = minVolume;
+            return;
+        }
+        this.currentVolume = currentVolume;
     }
 
     public int getCurrentStation() {
         return currentStation;
     }
+
+    public void setCurrentStation(int currentStation) {
+        if (currentStation < minStation) {
+            this.currentStation = minStation;
+            return;
+        }
+        if (currentStation > maxStation) {
+            this.currentStation = maxStation;
+            return;
+        }
+        this.currentStation = currentStation;
+    }
+
 }
+
+
