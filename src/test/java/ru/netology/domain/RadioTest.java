@@ -10,23 +10,23 @@ class RadioTest {
 
     @Test
     void ShouldincreaseStation() {
-        coub.setCurrentStation(7);
+        coub.setCurrentStation(8);
         coub.increaceStation();
-        assertEquals(8, coub.getCurrentStation());
+        assertEquals(9, coub.getCurrentStation());
     }
 
     @Test
     void ShouldNoincreaseStation() {
-        coub.setCurrentStation(10);
+        coub.setCurrentStation(9);
         coub.increaceStation();
         assertEquals(0, coub.getCurrentStation());
     }
 
     @Test
     void ShouldDeIncreaseStation() {
-        coub.setCurrentStation(7);
+        coub.setCurrentStation(9);
         coub.decreaseStation();
-        assertEquals(6, coub.getCurrentStation());
+        assertEquals(8, coub.getCurrentStation());
     }
 
     @Test
@@ -141,16 +141,78 @@ class RadioTest {
     }
 
     @Test
-    void ShouldNumberStation() {
-        coub.setNumberStation(5);
-        assertEquals(5, coub.getNumberStation());
+    void ShouldNumberStation177() {
+        coub.setNumberStation(177);
+        assertEquals(9, coub.getMaxStation());
     }
 
     @Test
-    public void checkGetAndSetField() {
+    public void CheckGetAndSetField() {
         coub.setName(coub.getName());
         assertEquals("Radio", coub.getName());
     }
+
+    @Test
+    void ShouldNumberStation11() {
+        coub.setNumberStation(11);
+        assertEquals(9, coub.getMaxStation());
+    }
+
+    @Test
+    void ShouldNumberStation12() {
+        coub.setCurrentStation(12);
+        assertEquals(9, coub.getCurrentStation());
+    }
+
+    @Test
+    void ShouldDecreaseVolume100() {
+        coub.setCurrentVolume(100);
+        coub.decreaseVolume();
+        assertEquals(99, coub.getCurrentVolume());
+    }
+
+    @Test
+    void ShouldPutVolum81() {
+        coub.setCurrentVolume(81);
+
+        assertEquals(81, coub.getCurrentVolume());
+    }
+
+    @Test
+    void ShouldPutVolum100() {
+        coub.setCurrentVolume(100);
+
+        assertEquals(100, coub.getCurrentVolume());
+    }
+
+    @Test
+    void ShouldPutVolum101() {
+        coub.setCurrentVolume(101);
+
+        assertEquals(100, coub.getCurrentVolume());
+    }
+
+    @Test
+    void ShouldPutVolum99() {
+        coub.setCurrentVolume(99);
+
+        assertEquals(99, coub.getCurrentVolume());
+    }
+
+    @Test
+    void ShouldIncreaseVolume100() {
+        coub.setCurrentVolume(100);
+        coub.increaseVolume();
+        assertEquals(100, coub.getCurrentVolume());
+    }
+
+    @Test
+    void ShouldDecreaseVolumeMinus1() {
+        coub.setCurrentVolume(-1);
+        coub.decreaseVolume();
+        assertEquals(0, coub.getCurrentVolume());
+    }
+
 
 }
 

@@ -8,19 +8,30 @@ public class Radio {
     private int minVolume = 0;
     private int maxStation = 9;
     private int minStation = 0;
-    private int numberStation=10;
+    private int numberStation = 10;
     private boolean on;
 
 
-    public Radio(){
+    public Radio(int maxStation, int numberStation) {
+        this.maxStation = maxStation;
+        this.numberStation = numberStation;
+    }
+
+
+    public Radio() {
 
     }
+
     // повышаем громкость
     public void increaseVolume() {
         if (currentVolume == maxVolume) {
             return;
         }
         currentVolume++;
+    }
+
+    public int getNumberStation() {
+        return numberStation;
     }
 
     public boolean isOn() {
@@ -31,13 +42,11 @@ public class Radio {
         this.on = on;
     }
 
-    public int getNumberStation() {
-        return numberStation;
-    }
 
     public void setNumberStation(int numberStation) {
         this.numberStation = numberStation;
     }
+
 
     // понижаем громкость
     public void decreaseVolume() {
