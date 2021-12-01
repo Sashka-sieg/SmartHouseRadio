@@ -12,14 +12,12 @@ public class Radio {
     private boolean on;
 
 
-    public Radio(int maxStation, int numberStation) {
-        this.maxStation = maxStation;
-        this.numberStation = numberStation;
+    public Radio() {
     }
 
-
-    public Radio() {
-
+    public Radio(int numberStation) {
+        this.numberStation = numberStation;
+        this.maxStation = numberStation-1;
     }
 
     // повышаем громкость
